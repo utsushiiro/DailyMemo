@@ -10,8 +10,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     end
     assert_template 'users/new'
-    assert_select 'div#error_explanation > .alert',
-                  'The form contains 4 errors.'
+    assert_select 'div#error_explanation'
     assert_select 'div.field_with_errors', count: 8
   end
 
@@ -25,5 +24,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'users/show'
+    assert flash[:success]
   end
 end
