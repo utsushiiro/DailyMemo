@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:test_user)
     @other_user = users(:another_test_user)
+    @will_delete_user = users(:will_deleted_test_user)
   end
 
   test 'should redirect index when not logged in' do
@@ -47,5 +48,20 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
                                                     password_confirmation: '',
                                                     admin: !@other_user.admin? }}
     assert_not @other_user.reload.admin?
+  end
+
+  test 'should redirect destroy when not logged in' do
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
+    assert_redirected_to login_url
+  end
+
+  test 'should redirect destroy when logged in as non-admin' do
+    log_in_as(@other_user)
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
+    assert_redirected_to root_path
   end
 end
