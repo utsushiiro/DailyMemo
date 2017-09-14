@@ -1,9 +1,9 @@
-<h1>DairyMemo</h1>
+<h1>DailyMemo</h1>
 
 <p>Hi <%= @user.name %>,</p>
 
 <p>
-  Welcome to the DairyMemo! Click on the link below to activate your account:
+  Welcome to the DailyMemo! Click on the link below to activate your account:
 </p>
 
 <%= link_to 'Activate', edit_account_activation_url(@user.activation_token,
