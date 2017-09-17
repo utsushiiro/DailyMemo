@@ -71,6 +71,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                                           password_confirmation: 'hogehoge' }
                                         }
     assert is_logged_in?
+    assert_nil user.reload.reset_digest
     assert_not_empty flash
     assert_redirected_to user
   end
