@@ -14,6 +14,11 @@ most_recent:
   created_at: <%= Time.zone.now %>
   user: test_user
 
+not_test_user_post:
+  content: 'hoge'
+  created_at: <%= 3.hours.ago %>
+  user: another_test_user
+
 <% 30.times do |n| %>
 micropost_<%= n %>:
   content: <%= Faker::Lorem.sentence(5) %>
