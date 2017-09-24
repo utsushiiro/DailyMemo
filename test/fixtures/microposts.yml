@@ -1,13 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   content: 'one'
   created_at: <%= 3.years.ago %>
+  user: test_user
 
 two:
   content: 'two'
   created_at: <%= 3.hours.ago %>
+  user: test_user
 
 most_recent:
   content: 'Most recent post'
   created_at: <%= Time.zone.now %>
+  user: test_user
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 3.days.ago %>
+  user: test_user
+<% end %>

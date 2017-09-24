@@ -20,6 +20,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'faker',          '1.7.3'
 end
 
 group :development do
@@ -27,7 +28,6 @@ group :development do
   gem 'listen',                '3.0.8'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'faker',          '1.7.3'
 end
 
 group :test do
