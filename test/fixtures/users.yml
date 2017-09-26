@@ -21,6 +21,30 @@ will_deleted_test_user:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+following_test_user:
+  name: following_test_user
+  email: following_test_user@example.com
+  password_digest: <%= User.digest 'password' %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+followed_by_test_user:
+  name: followed_by_test_user
+  email: followed_by_test_user@example.com
+  password_digest: <%= User.digest 'password' %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+not_followed_by_test_user:
+  name: not_followed_by_test_user
+  email: not_followed_by_test_user@example.com
+  password_digest: <%= User.digest 'password' %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name:  <%= "User-#{n}" %>
