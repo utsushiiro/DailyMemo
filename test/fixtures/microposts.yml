@@ -15,9 +15,19 @@ most_recent:
   user: test_user
 
 not_test_user_post:
-  content: 'hoge'
+  content: 'not_test_user_post'
   created_at: <%= 3.hours.ago %>
   user: another_test_user
+
+followed_by_test_user_post:
+  content: 'followed_by_test_user_post'
+  created_at: <%= 3.hours.ago %>
+  user: followed_by_test_user
+
+not_followed_by_test_user_post:
+  content: 'not_followed_by_test_user_post'
+  created_at: <%= 3.hours.ago %>
+  user: not_followed_by_test_user
 
 <% 30.times do |n| %>
 micropost_<%= n %>:
